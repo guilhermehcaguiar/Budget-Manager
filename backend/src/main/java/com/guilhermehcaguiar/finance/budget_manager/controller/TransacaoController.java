@@ -1,25 +1,21 @@
 package com.guilhermehcaguiar.finance.budget_manager.controller;
 import com.guilhermehcaguiar.finance.budget_manager.model.Transacao;
-import com.guilhermehcaguiar.finance.budget_manager.service.TransacaoService;
+import com.guilhermehcaguiar.finance.budget_manager.repository.TransacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @RestController
 @RequestMapping("/api/transacoes")
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 public class TransacaoController {
-   @Autowired
-   private TransacaoService transacaoService;
-   @PostMapping
-    public Transacao criar(@RequestBody Transacao transacao) {
-        return transacaoService.salvar(transacao); 
-    }
+    @Autowired
+    private TransacaoRepository repository;
     @GetMapping
-    public List<Transacao> listar() {
-        return transacaoService.listar();
+    public List<Transacao> listarTodas() {
+        return repository.findAll();
     }
-    @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
-        transacaoService.deletar(id);
+    @PostMapping
+    public Transacao salvar(@RequestBody Transacao transacao) {
+        return repository.save(transacao);
     }
 }
