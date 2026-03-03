@@ -14,6 +14,10 @@ public class TransacaoController {
     public List<Transacao> listarTodas() {
         return repository.findAll();
     }
+    @GetMapping("/fixas")
+    public List<Transacao> listarFixas(@RequestParam String tipo) {
+        return repository.findByTipoAndFixo(tipo, true);
+    }
     @PostMapping
     public Transacao salvar(@RequestBody Transacao transacao) {
         return repository.save(transacao);

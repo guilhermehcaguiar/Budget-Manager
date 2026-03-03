@@ -12,7 +12,8 @@ public class Transacao {
     private BigDecimal valor;
     private LocalDate data;
     private String categoria;
-    private String tipo; 
+    private String tipo;
+    private boolean fixo;
     public Transacao() {}
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -26,4 +27,6 @@ public class Transacao {
     public void setCategoria(String categoria) { this.categoria = categoria; }
     public String getTipo() { return tipo; }
     public void setTipo(String tipo) { this.tipo = tipo; }
+    public boolean isFixo() { return fixo; }
+    public void setFixo(boolean fixo) { this.fixo = fixo; }
 }

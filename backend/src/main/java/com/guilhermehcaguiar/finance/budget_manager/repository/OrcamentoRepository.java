@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface OrcamentoRepository extends JpaRepository<Orcamento, Long> {
-    Optional<Orcamento> findByDescricao(String descricao);
+    Optional<Orcamento> findByCategoria(String categoria);
 }

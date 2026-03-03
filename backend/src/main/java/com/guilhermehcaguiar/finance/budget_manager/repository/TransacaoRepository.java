@@ -6,5 +6,5 @@ import java.util.List;
 @Repository
 public interface TransacaoRepository extends JpaRepository<Transacao, Long> {
     List<Transacao> findByTipo(String tipo);
-    List<Transacao> findByCategoria(String categoria);
+    List<Transacao> findByTipoAndFixo(String tipo, boolean fixo);
 }
